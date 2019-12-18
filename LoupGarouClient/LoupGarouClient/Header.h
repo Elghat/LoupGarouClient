@@ -10,3 +10,4 @@
 #pragma comment(lib,"ws2_32.lib") //Winsock Library
 
 void Connection();
+void Deconnection();
