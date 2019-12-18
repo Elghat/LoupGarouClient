@@ -2,7 +2,8 @@
 
 void Connection()
 {
-	char buffer[255];
+	char buffer[255] = {NULL};
+	char line[255] = { NULL };
 	WSADATA WSAData;
 	WSAStartup(MAKEWORD(2, 0), &WSAData);
 	SOCKET sock;
@@ -15,9 +16,26 @@ void Connection()
 	connect(sock, (SOCKADDR*)&sin, sizeof(sin));
 	recv(sock, buffer, sizeof(buffer), 0);
 	printf(buffer);
-	closesocket(sock);
+	//closesocket(sock);
 
-	
+	while (1)
+	{
+		
+		scanf("%s", &line);
+
+		
+		//free(sock);
+		//sock = socket(AF_INET, SOCK_STREAM, 0);
+
+		send(sock, line, sizeof(line), 0);
+
+		//free(line);
+
+		
+
+	}
+
+	closesocket(sock);
 
 }
 
