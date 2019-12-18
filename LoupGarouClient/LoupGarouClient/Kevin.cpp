@@ -1,12 +1,12 @@
 #include "Header.h"
 
-void connection()
+void Connection()
 {
 	char buffer[255];
 	WSADATA WSAData;
 	WSAStartup(MAKEWORD(2, 0), &WSAData);
 
-	SOCKET sock;
+	SOCKET* sock = (SOCKET*)malloc(sizeof(SOCKET)); // Le socket
 	SOCKADDR_IN sin;
 
 	sin.sin_addr.s_addr = inet_addr("127.0.0.1");
@@ -16,6 +16,9 @@ void connection()
 	connect(sock, (SOCKADDR*)&sin, sizeof(sin));
 	recv(sock, buffer, sizeof(buffer), 0);
 	closesocket(sock);
+
+	
+	
 
 	WSACleanup();
 }
